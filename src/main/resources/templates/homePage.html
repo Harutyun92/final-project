@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <th:block th:replace ="~{includes/commonScripts :: head}"></th:block>
-    <th:block th:replace ="~{includes/commonScripts :: end-of-body}"></th:block>
+    <th:block th:replace="~{includes/commonScripts :: head}"></th:block>
 </head>
 <body>
-<h1> Witaj! </h1>
+<h1>Zalogowany jako: <span th:text="${@userContextService.getLoggedUsername()}"></span></h1>
+
+<td>
+    <span th:if="${@userContextService.getLoggedUsername() != null}"><a th:href="@{/eventForm}">Click to add Event</a></span>
+</td>
+
+<a th:href="@{/register}">Register</a>
+<a th:href="@{/login}">Sign in</a>
 </body>
 </html>

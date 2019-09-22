@@ -1,0 +1,28 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{includes/commonScripts :: head}"></th:block>
+</head>
+<body>
+<h1>Event form</h1>
+
+<form method="post" th:action="@{/eventForm}" th:object="${eventForm}" >
+    <input type="text" name="title" placeholder="Enter title of event..." >
+    <br>
+    <input type="text" name="startingDate" placeholder="Enter event start date...">
+    <span th:errors="*{startingDate}">Wrong date format, should be yyyy-MM-dd</span>
+    <br>
+    <input type="text" name="endingDate" placeholder="Enter event end date...">
+    <span th:errors="*{endingDate}">Wrong date format, should be yyyy-MM-dd</span>
+    <br>
+    <input type="text" name="description" placeholder="Enter description...">
+    <span th:errors="*{description}">Invalid description</span>
+    <br>
+    <input type="submit" value="Click to add form">
+</form>
+
+<th:block th:replace="~{includes/commonScripts :: end-of-body}"></th:block>
+</body>
+</html>

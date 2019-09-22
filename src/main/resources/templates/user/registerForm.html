@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{includes/commonScripts :: head}"></th:block>
+</head>
+<body>
+<h1>Register</h1>
+
+<form method="post" th:action="@{/register}" th:object="${registerForm}">
+    <input type="text" placeholder="Enter your username...">
+    <span th:errors="*{username}">Invalid username</span>
+    <br>
+
+    <input type="password" name="password">
+    <span th:errors="*{password}">Invalid password</span>
+    <br>
+
+    <input type="text" name="nickname" placeholder="Enter your nickname">
+    <span th:errors="*{nickname}">Invalid nickname</span>
+
+    <input type="submit" value="Register">
+</form>
+
+<th:block th:replace="~{includes/commonScripts :: end-of-body}"></th:block>
+</body>
+</html>
